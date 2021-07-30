@@ -1,22 +1,11 @@
 function isPalindrome(str) {
-  let strLen = str.length;
-  let result = '';
-    for (let i = 0; i < strLen; i++) {
-      if (str[i] === str[strLen - 1 - i]) {
-        result = 'yes';
-      } else {
-        result = 'no';
-        return result;
-      }
-    }
-    return result;
-  }
+  return str.toLowerCase() === str.toLowerCase().split('').reverse().join('');
+}
+test = isPalindrome('abydd');
+test2 = isPalindrome('qweeewq');
 
-  test = isPalindrome('abydd');
-  test2 = isPalindrome('qweeewq');
-
-  console.log(test);
-  console.log(test2);
+console.log(test);
+console.log(test2);
 
 
 function min(a, b) {
@@ -48,14 +37,12 @@ function max(a, b) {
 console.log('max', max(2, 7));
 
 
-(function replacement (){
-let arr = [ ];
+const arr = [];
 for (let i = 0; i < 10; i++ ) {
-arr.push( Math.round( Math.random() * 100 ));
+  arr.push( Math.round( Math.random() * 100 ));
 }
-let arrToString = arr.toString();
-let newarr = arrToString.replace(/0/g, 'zero');
-console.log(arrToString);
-console.log(newarr);
-} 
-());
+
+const replacementZero = (arr) => arr.map((arr) => String(arr).includes('0') ? String(arr).replace(/0/g, 'zero') : arr);
+
+console.log(arr);
+console.log(replacementZero(arr));
