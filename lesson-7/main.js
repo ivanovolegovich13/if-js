@@ -46,15 +46,15 @@ const data = [
   },
 ];
 
-const getMatches = function(str) {
-	return data.reduce((newArr, Object) => {
+const getMatches = (str) =>
+	data.reduce((newArr, Object) => {
 		const string = `${Object.country}, ${Object.city}, ${Object.hotel}`;
 		if ((new RegExp(str, 'gim')).test(string)) {
 			newArr.push(string);
 		}
 		return newArr;
 	}, []);
-}
+
 console.log(getMatches('Berlin'));
 
 
@@ -216,8 +216,8 @@ const hotels = [
   },
 ];
 
-const getCountries = function(arr) {
-	return arr.reduce((acc, cur) => {
+const getCountries = (arr) =>
+	arr.reduce((acc, cur) => {
 		if (!acc[cur.country]) {
 			acc[cur.country] = [cur.city];
 		} else if (!acc[cur.country].includes(cur.city)) {
@@ -225,5 +225,5 @@ const getCountries = function(arr) {
 		}
 		return acc;
 	}, [])
-}
+
 console.log(getCountries(hotels));
